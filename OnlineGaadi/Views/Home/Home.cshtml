@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>Home</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Home">
+
+            <div>
+                <a asp-action="Home">Back to List</a>
+            </div>
+            <h1> WELCOME TO ONLINEGAADI</h1>
+            <div id="Container">
+                <div class="Rightdiv">
+                    <h2>User Registration</h2>
+                </div>
+            </div>
+            <div class="Leftdiv">
+                <h2>Driver Registration</h2>
+                <a href="C:\projects\OnlineGaadi\OnlineGaadi\OnlineGaadi\Controllers\DriverRegistrationController.cs">C:\projects\OnlineGaadi\OnlineGaadi\OnlineGaadi\Controllers\DriverRegistrationController.cs</a>"></a>
+            </div>
+          
+
+        </form>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+

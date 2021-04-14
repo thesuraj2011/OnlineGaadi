@@ -16,7 +16,7 @@ namespace OnlineGaadi.Repo
         //To Handle connection related activities
         private void connection()
         {
-            string constr = "Server=LAPTOP-3GK5UBBG\\SURAJ; Database=OnlineGaadi; Trusted_Connection=True; MultipleActiveResultSets=true";
+            string constr = "Server=LAPTOP-0QHGVH2Q; Database=OnlineGaadi; Trusted_Connection=True; MultipleActiveResultSets=true";
             con = new SqlConnection(constr);
         }
 
