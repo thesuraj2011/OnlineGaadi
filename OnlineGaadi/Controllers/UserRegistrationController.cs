@@ -2,12 +2,16 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineGaadi.Models;
 using OnlineGaadi.Repo;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace OnlineGaadi.Controllers
 {
-    public class DriverRegistrationController : Controller
+    public class UserRegistrationController : Controller
     {
-        // GET: DriverRegistrationController
+        // GET: UserRegistrationProp
         public ActionResult Index()
         {
             return View();
@@ -15,12 +19,12 @@ namespace OnlineGaadi.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(DriverRegistrationProp driverRegistration)
+        public ActionResult Index(UserRegistrationProp userRegistration)
         {
             try
             {
-                DriverRegistrationRepo driverRegistrationRepo = new DriverRegistrationRepo();
-                driverRegistrationRepo.RegistrationDriver(driverRegistration);
+                UserRegistrationRepo userRegistrationRepo = new UserRegistrationRepo();
+                userRegistrationRepo.RegistrationUser(userRegistration);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -48,16 +52,44 @@ namespace OnlineGaadi.Controllers
                 driverLocation = "All";
             }
             DriverRegistrationRepo driverRegistrationRepo = new DriverRegistrationRepo();
-            return View("DriverDetails",driverRegistrationRepo.FindDriverByLocation(driverLocation));
+            return View("DriverDetails", driverRegistrationRepo.FindDriverByLocation(driverLocation));
         }
 
-        // GET: DriverRegistrationController/Edit/5
+
+        // GET: UserRegistrationProp/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: UserRegistrationProp/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: UserRegistrationProp/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: UserRegistrationProp/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: DriverRegistrationController/Edit/5
+        // POST: UserRegistrationProp/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -72,13 +104,13 @@ namespace OnlineGaadi.Controllers
             }
         }
 
-        // GET: DriverRegistrationController/Delete/5
+        // GET: UserRegistrationProp/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: DriverRegistrationController/Delete/5
+        // POST: UserRegistrationProp/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
@@ -92,10 +124,5 @@ namespace OnlineGaadi.Controllers
                 return View();
             }
         }
-        public ActionResult Index1()
-        {
-            return View();
-        }
-
     }
 }
